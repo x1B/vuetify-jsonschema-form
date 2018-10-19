@@ -3,8 +3,32 @@
     <!-- Hide const ? Or make a readonly field -->
     <div v-if="schema.const !== undefined" />
 
+    <!-- Datetime picker -->
+    <v-layout v-if="schema.format === 'date-time'" row>
+      <v-icon class="pa-1">event</v-icon>
+      <v-flex fluid>
+        <v-text-field
+          v-if="disabled"
+          :value="modelWrapper[modelKey]"
+          :label="label"
+          :name="fullKey"
+          :hint="schema.description"
+          :required="required"
+          :rules="rules"
+          prepend-icon="event"
+          readonly
+        />
+        <v-datetime-picker
+          v-else
+          v-model="modelWrapper[modelKey]"
+          :label="label"
+          prepend-icon="event"
+        />
+      </v-flex>
+    </v-layout>
+
     <!-- Date picker -->
-    <v-menu v-else-if="schema.type === 'string' && ['date', 'date-time'].includes(schema.format)" ref="menu" :close-on-content-click="false" v-model="menu"
+    <v-menu v-else-if="schema.type === 'string' && schema.format === 'date'" ref="menu" :close-on-content-click="false" v-model="menu"
             :nudge-right="40"
             :return-value.sync="modelWrapper[modelKey]"
             :disabled="disabled"

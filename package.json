@@ -1,5 +1,5 @@
 {
-  "name": "@koumoul/vuetify-jsonschema-form",
+  "name": "@x1b/vuetify-jsonschema-form",
   "version": "0.9.1",
   "description": "Generate forms for the vuetify UI library (vuejs) based on annotated JSON schemas.",
   "main": "dist/main.js",
@@ -23,7 +23,8 @@
   "dependencies": {
     "match-all": "^1.2.4",
     "vuedraggable": "^2.16.0",
-    "vue-swatches": "^1.0.2"
+    "vue-swatches": "^1.0.2",
+    "vuetify-datetime-picker": "^1.0.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.54",
