@@ -125,6 +125,15 @@
     />
 
     <!-- Simple text field -->
+    <v-textarea v-else-if="schema.type === 'string' && schema.maxLength > 160"
+                v-model="modelWrapper[modelKey]"
+                :name="fullKey"
+                :label="label"
+                :hint="schema.description"
+                :disabled="disabled"
+                :required="required"
+                :rules="rules"
+    />
     <v-text-field v-else-if="schema.type === 'string'"
                   v-model="modelWrapper[modelKey]"
                   :name="fullKey"
